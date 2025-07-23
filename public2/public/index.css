@@ -1,0 +1,122 @@
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Background ===== */
+.background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #121212; 
+    z-index: -1;
+}
+
+/* ===== Main Container ===== */
+.landing-container {
+    text-align: center;
+    padding: 40px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* ===== Logo Display ===== */
+.logo-display {
+    margin-bottom: 60px;
+    animation: fadeIn 1s ease-out;
+}
+
+.main-logo {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+.tagline {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #a0a0a0;
+    text-transform: uppercase;
+}
+
+/* ===== Navigation Buttons ===== */
+.nav-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-btn i {
+    font-size: 2rem;
+    color: #ffcc00;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 204, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 204, 0, 0.3);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .main-logo {
+        max-width: 250px;
+    }
+    
+    .nav-buttons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-container {
+        padding: 20px;
+    }
+    
+    .nav-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+    }
+}
