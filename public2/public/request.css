@@ -102,7 +102,7 @@ body::before {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    color:wheat;
+    color:black;
     font-size: 1rem;
     transition: all 0.3s ease;
 }
@@ -144,9 +144,9 @@ body::before {
 
 
 .submit-btn:hover {
-   background: black;
+   background:#5f493c ;
   transform: translateY(-2px);
-  box-shadow: 0 3px 10px black;
+  box-shadow: 0 3px 10px rgb(228, 4, 4);
   border-color: black;
 }
 
@@ -158,7 +158,7 @@ body::before {
   background: black;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 30px;
-  color: white;
+  color: #5f493c;
   text-decoration: none;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -166,7 +166,7 @@ body::before {
 
 
 .back-to-contact-btn:hover {
-   background: black;
+   background: #5f493c;
   transform: translateY(-2px);
   box-shadow: 0 3px 10px black;
   border-color: black;
