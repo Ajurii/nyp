@@ -1,4 +1,4 @@
-/* ===== Base Styles (Consistent with index.html) ===== */
+/* ===== Base Styles ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,19 +6,42 @@
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url('bg.webp') center/cover no-repeat;
-  z-index: -1;
+body {
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Background with overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('bg.webp') center/cover no-repeat;
+    z-index: -1;
+}
+
+/* ===== Header with Logo ===== */
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.logo-right {
+    height: 50px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
 
 /* ===== Form Container ===== */
 .request-container {
@@ -29,20 +52,14 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
     animation: fadeIn 1s ease-out;
 }
 
-/* ===== Logo & Header ===== */
+/* ===== Form Header ===== */
 .request-header {
     text-align: center;
     margin-bottom: 40px;
-}
-
-.request-logo {
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
 }
 
 .request-title {
@@ -57,7 +74,7 @@ body::before {
     letter-spacing: 1px;
 }
 
-/* ===== Form Styles ===== */
+/* ===== Form Elements ===== */
 .request-form {
     display: grid;
     gap: 25px;
@@ -81,7 +98,7 @@ body::before {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    color: black;
+    color: white;
     font-size: 1rem;
     transition: all 0.3s ease;
 }
@@ -90,8 +107,8 @@ body::before {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: rgba(255, 204, 0, 0.5);
-    background: rgba(255, 204, 0, 0.05);
+    border-color: rgba(95, 73, 60, 0.5);
+    background: rgba(95, 73, 60, 0.1);
 }
 
 .form-group textarea {
@@ -99,25 +116,63 @@ body::before {
     resize: vertical;
 }
 
-/* ===== Submit Button ===== */
+/* ===== Button Container ===== */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* ===== Buttons ===== */
 .submit-btn {
-    padding: 14px;
-    background: rgba(255, 204, 0, 0.2);
-    border: 1px solid rgba(255, 204, 0, 0.3);
-    color:#5f493c;
-    font-size: 1.1rem;
-    font-weight: 500;
+    padding: 14px 30px;
+    background-color: #5f493c;
+    color: white;
+    border: none;
     border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .submit-btn:hover {
-    background:#5f493c;
+    background-color: #4a382e;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-contact-btn {
+    padding: 12px 20px;
+    background: transparent;
+    color: #5f493c;
+    border: 1px solid #5f493c;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-to-contact-btn:hover {
+    background: rgba(95, 73, 60, 0.1);
+    transform: translateX(-3px);
+}
+
+/* ===== Icons ===== */
+.back-to-contact-btn i,
+.submit-btn i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.back-to-contact-btn:hover i {
+    transform: translateX(-3px);
 }
 
 /* ===== Animations ===== */
@@ -132,22 +187,29 @@ body::before {
         padding: 30px;
     }
     
-    .request-logo {
-        max-width: 180px;
-    }
-    
     .request-title {
         font-size: 1.8rem;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .submit-btn,
+    .back-to-contact-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
-    .request-container {
-        padding: 25px 20px;
+    .header-container {
+        padding: 15px 20px;
     }
     
-    .request-logo {
-        max-width: 150px;
+    .request-container {
+        padding: 25px 20px;
     }
     
     .request-title {
@@ -159,82 +221,4 @@ body::before {
     .form-group textarea {
         padding: 10px 12px;
     }
-}
-
- .nav-back-container {
-        margin: 20px 0 30px;
-    }
-
-    .back-to-contact-btn {
-        display: inline-block;
-        align-items: top-right;
-        gap: 8px;
-        padding: 8px 16px;
-        background: rgba(255, 255, 255, 0.05);
-        color: #a0a0a0;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 6px;
-        font-size: 0.9rem;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-
-    .back-to-contact-btn:hover {
-        background: rgba(255, 204, 0, 0.1);
-        color:#5f493c;
-        border-color: rgba(255, 204, 0, 0.3);
-        transform: translateX(-3px);
-    }
-
-    .back-to-contact-btn i {
-        font-size: 0.8rem;
-        transition: transform 0.3s ease;
-    }
-
-    .back-to-contact-btn:hover i {
-        transform: translateX(-3px);
-    }
-
-    /* Add to your request.css file */
-.nav-back-container {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0 30px;
-}
-
-.back-to-home-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.03);
-    color: #a0a0a0;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.back-to-home-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateX(-3px);
-}
-
-.back-to-home-btn i {
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
-}
-
-.back-to-home-btn:hover i {
-    transform: translateX(-3px);
-}
-
-
-.nav-back-container {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
 }

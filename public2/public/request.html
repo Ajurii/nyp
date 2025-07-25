@@ -10,16 +10,12 @@
 </head>
 <body>
 <body>
+
+    <div class="header-container">
+        <img src="LOGO.JPG" alt="NYP Logo" class="logo-right">
+    </div>
+    </div>
     <div class="background-layer"></div>
-    
-    <div class="request-container">
-        
-        <div class="nav-back-container">
-            <a href="contact.html" class="back-to-contact-btn">
-                <i class="fas fa-chevron-left"></i> Return to Contact
-            </a>
-        </div>
-        
         <header class="request-header">
           
 
@@ -28,8 +24,8 @@
     <div class="request-container">
         <header class="request-header">
             <img src="LOGO.JPG" alt="NYP Logo" class="request-logo">
-            <h1 class="request-title">Begin Your Custom Buildt</h1>
-            <p class="request-subtitle">Tell us about your project needs and we'll get back to you with a quote</p>
+            <h1 class="request-title">Begin Your Custom Build</h1>
+            <p class="request-subtitle">Tell us about your project needs and we'll get back to you with the end product</p>
         </header>
         
         <form class="request-form" action="https://formspree.io/f/mjkowyly" method="POST">
@@ -98,19 +94,15 @@
                 <label for="phone"><i class="fas fa-phone"></i> Phone (Optional)</label>
                 <input type="tel" id="phone" name="phone" placeholder="+1 (123) 456-7890">
             </div>
-            
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn">
-                <i class="fas fa-paper-plane"></i> Submit Request
-            </button>
-        </form>
-    </div>
-
-    <div class="nav-back-container">
-    <a href="index.html" class="back-to-home-btn">
-        <i class="fas fa-chevron-left"></i> Return to Home
-    </a>
-</div>
+             <!-- Submit Button -->
+            <div class="button-container">
+                <button type="button" class="back-btn" onclick="window.location.href='contact.html'">
+                    <i class="fas fa-chevron-left"></i> Return to Contact
+                </button>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Request
+                </button>
+            </div>
 
 </body>
 </html>
