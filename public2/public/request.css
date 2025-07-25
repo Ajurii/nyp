@@ -48,7 +48,7 @@ body::before {
     width: 100%;
     max-width: 800px;
     padding: 40px;
-    background: rgba(255, 255, 255, 0.05);
+    background: black;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -65,7 +65,7 @@ body::before {
 .request-title {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #ffffff;
+    color:#5f493c;
 }
 
 .request-subtitle {
@@ -88,7 +88,7 @@ body::before {
 
 .form-group label {
     font-size: 1rem;
-    color: #cccccc;
+    color: black;
 }
 
 .form-group input,
@@ -98,7 +98,7 @@ body::before {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    color: white;
+    color:black;
     font-size: 1rem;
     transition: all 0.3s ease;
 }
@@ -127,7 +127,7 @@ body::before {
 .submit-btn {
     padding: 14px 30px;
     background-color: #5f493c;
-    color: white;
+    color:#5f493c;
     border: none;
     border-radius: 6px;
     font-size: 1rem;
