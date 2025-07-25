@@ -1,11 +1,4 @@
-services:
-  - type: web
-    name: nyp-tech-portfolio
-    runtime: node
-    buildCommand: npm install
-    startCommand: npm start
-    env: node
-    staticPublishPath: ./public
-    envVars:
-      - key: NODE_ENV
-        value: production
+static_sites:
+  - name: NYP TECH
+    build_command: ""
+    output_dir: "public2/public"
