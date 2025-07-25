@@ -540,6 +540,50 @@ nav {
     box-shadow: 0 3px 10px rgba(95, 73, 60, 0.2);
 }
 
+
+    .cta-section {
+        padding: 60px 20px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        margin-top: 40px;
+        border-top: 1px solid rgba(255, 204, 0, 0.1);
+    }
+
+    .contact-cta h3 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .request-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 30px;
+        background: rgba(255, 204, 0, 0.2);
+        color: #ffcc00;
+        border: 1px solid rgba(255, 204, 0, 0.3);
+        border-radius: 6px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .request-btn:hover {
+        background: rgba(255, 204, 0, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 204, 0, 0.1);
+    }
+
+    .request-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    .request-btn:hover i {
+        transform: translateX(3px);
+    }
 @media (max-width: 480px) {
   .about-page, .about-section {
     padding: 20px 15px;

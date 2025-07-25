@@ -166,3 +166,37 @@ body {
         padding: 10px 12px;
     }
 }
+
+ .nav-back-container {
+        margin: 20px 0 30px;
+    }
+
+    .back-to-contact-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #a0a0a0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .back-to-contact-btn:hover {
+        background: rgba(255, 204, 0, 0.1);
+        color: #ffcc00;
+        border-color: rgba(255, 204, 0, 0.3);
+        transform: translateX(-3px);
+    }
+
+    .back-to-contact-btn i {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+    }
+
+    .back-to-contact-btn:hover i {
+        transform: translateX(-3px);
+    }
