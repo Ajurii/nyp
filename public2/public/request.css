@@ -94,8 +94,24 @@ body::before {
     color: #ffffff;
 }
 
+/* Black dropdown styling */
+.form-group select {
+    background-color: black !important;
+    color: white !important;
+    border: 1px solid #5f493c !important;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group select option {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
 .form-group input,
-.form-group select,
 .form-group textarea {
     padding: 12px 15px;
     background: rgba(255, 255, 255, 0.08);
@@ -148,6 +164,28 @@ body::before {
     border-color: black;
 }
 
+.home-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    color: #5f493c;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.home-btn:hover {
+    background: #5f493c;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    border-color: black;
+    color: white;
+}
+
 .back-to-contact-btn {
     display: flex;
     align-items: center;
@@ -172,6 +210,7 @@ body::before {
 
 /* ===== Icons ===== */
 .back-to-contact-btn i,
+.home-btn i,
 .submit-btn i {
     font-size: 0.9rem;
     transition: transform 0.3s ease;
@@ -203,6 +242,7 @@ body::before {
     }
     
     .submit-btn,
+    .home-btn,
     .back-to-contact-btn {
         width: 100%;
         justify-content: center;
