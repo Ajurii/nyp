@@ -414,8 +414,8 @@ body::before {
   gap: 10px;
   padding: 12px 30px;
   background: #5f493c;
-  color: #5f493c;
-  border: 1px solid rgba(255, 204, 0, 0.3);
+  color:black;
+  border: #5f493c;
   border-radius: 6px;
   font-size: 1.1rem;
   font-weight: 500;

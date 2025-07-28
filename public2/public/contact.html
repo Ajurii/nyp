@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | NYP TECH</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -29,7 +32,7 @@
 
     <section class="contact-section">
         <div class="contact-container">
-            <h1>Let's Connect</h1>
+            <h1 class="contact-title">Let's Connect</h1>
             <div class="divider"></div>
             <p class="tagline">Choose your preferred way to reach out</p>
 
@@ -70,33 +73,45 @@
         </div>
     </section>
 
-    
-<div class="thank-you-modal" id="thankYouModal">
-    <div class="thank-you-content">
-        <span class="close-modal">&times;</span>
-        <i class="fas fa-check-circle"></i>
-        <h2>Thank You!</h2>
-        <p>Your message has been received successfully. I'll get back to you within 24 hours.</p>
-        <a href="index.html" class="return-home-btn">
-            <i class="fas fa-home"></i> Return Home
-        </a>
+    <div class="thank-you-modal" id="thankYouModal">
+        <div class="thank-you-content">
+            <span class="close-modal">&times;</span>
+            <i class="fas fa-check-circle"></i>
+            <h2>Thank You!</h2>
+            <p>Your message has been received successfully. I'll get back to you within 24 hours.</p>
+            <a href="index.html" class="return-home-btn">
+                <i class="fas fa-home"></i> Return Home
+            </a>
+        </div>
     </div>
-</div>
 
-<script>
-     document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on page load
+            setTimeout(() => {
+                document.querySelector('.contact-title').classList.add('animate-in');
+                document.querySelector('.divider').classList.add('animate-in');
+                document.querySelector('.tagline').classList.add('animate-in');
+                
+                const contactMethods = document.querySelectorAll('.contact-method');
+                contactMethods.forEach((method, index) => {
+                    setTimeout(() => {
+                        method.classList.add('animate-in');
+                    }, 200 * (index + 1));
+                });
+            }, 100);
+
             // Form submission handler
             const form = document.querySelector('.email-form');
             if (form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     document.getElementById('thankYouModal').style.display = 'flex';
-                   
                     setTimeout(() => form.submit(), 1500);
                 });
             }
 
-            
+            // QR code click handler
             const qrCode = document.querySelector('.qr-code');
             if (qrCode) {
                 qrCode.addEventListener('click', function(e) {
@@ -105,19 +120,28 @@
                 });
             }
 
-           
+            // Close modal handlers
             document.querySelector('.close-modal').addEventListener('click', function() {
                 document.getElementById('thankYouModal').style.display = 'none';
             });
 
-             
             window.addEventListener('click', function(e) {
                 if (e.target === document.getElementById('thankYouModal')) {
                     document.getElementById('thankYouModal').style.display = 'none';
                 }
             });
-        });
-</script>
 
+            // Add hover effects to buttons
+            const buttons = document.querySelectorAll('.back-btn, .submit-btn, .return-home-btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
