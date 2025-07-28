@@ -91,12 +91,12 @@
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     document.getElementById('thankYouModal').style.display = 'flex';
-                    // Optional: Actually submit the form after delay
+                   
                     setTimeout(() => form.submit(), 1500);
                 });
             }
 
-            // QR code click handler (simulated scanning)
+            
             const qrCode = document.querySelector('.qr-code');
             if (qrCode) {
                 qrCode.addEventListener('click', function(e) {
@@ -105,12 +105,12 @@
                 });
             }
 
-            // Close modal
+           
             document.querySelector('.close-modal').addEventListener('click', function() {
                 document.getElementById('thankYouModal').style.display = 'none';
             });
 
-             // Close when clicking outside
+             
             window.addEventListener('click', function(e) {
                 if (e.target === document.getElementById('thankYouModal')) {
                     document.getElementById('thankYouModal').style.display = 'none';
