@@ -13,7 +13,7 @@ body {
   min-height: 100vh;
   color: white;
   line-height: 1.6;
-  background-color: #121212;
+  background-color:  #5f493c;
 }
 
 /* ===== Header & Navigation ===== */
@@ -35,7 +35,7 @@ nav {
 .logo-container {
   position: fixed;
   top: 20px;
-  left: 20px;
+  right: 20px;
   z-index: 1000;
 }
 
@@ -68,7 +68,7 @@ nav {
 .back-btn-container {
   position: fixed;
   top: 30px;
-  right: 30px;
+  left: 30px;
   z-index: 100;
 }
 
