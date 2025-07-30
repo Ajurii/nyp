@@ -7,14 +7,15 @@
 }
 
 body {
-    color: black;
+    color: white; /* Changed from black to white for better contrast */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: black; /* Added solid black background */
 }
 
-/* Background with overlay */
+/* Background with overlay - Modified to work with black background */
 body::before {
     content: "";
     position: fixed;
@@ -22,25 +23,27 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    color:black;
+    background: 
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8));
     z-index: -1;
+    opacity: 0.5; 
 }
 
 /* ===== Top Contact Bar ===== */
 .top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color:  #5f493c;
-  color: white;
-  padding: 12px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  z-index: 1001;
-  border-bottom: 2px solid rgba(95, 73, 60, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #5f493c;
+    color: white;
+    padding: 12px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    z-index: 1001;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Lighter border for contrast */
 }
 
 /* ===== Header with Logo ===== */
@@ -49,6 +52,7 @@ body::before {
     display: flex;
     justify-content: flex-end;
     padding: 20px 40px;
+    background-color: transparent; /* Ensure transparency */
 }
 
 .logo-right {
@@ -58,7 +62,7 @@ body::before {
     right: 20px;
     z-index: 1000;
     width: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); 
 }
 
 /* ===== Form Container ===== */
@@ -66,10 +70,10 @@ body::before {
     width: 100%;
     max-width: 800px;
     padding: 40px;
-    background: black;
+    background: rgba(0, 0, 0, 0.7); 
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     margin: 20px auto;
     animation: fadeIn 1s ease-out;
 }
@@ -84,6 +88,7 @@ body::before {
     font-size: 2rem;
     margin-bottom: 10px;
     color: #5f493c;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .request-subtitle {
@@ -109,9 +114,9 @@ body::before {
     color: #ffffff;
 }
 
-/* Black dropdown styling */
+/* Input and select styling */
 .form-group select {
-    background-color: black !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
     color: white !important;
     border: 1px solid #5f493c !important;
     padding: 12px 15px;
@@ -141,8 +146,9 @@ body::before {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: rgba(95, 73, 60, 0.5);
-    background: rgba(95, 73, 60, 0.1);
+    border-color: #5f493c;
+    background: rgba(95, 73, 60, 0.2);
+    box-shadow: 0 0 0 2px rgba(95, 73, 60, 0.3);
 }
 
 .form-group textarea {
@@ -158,81 +164,45 @@ body::before {
 }
 
 /* ===== Buttons ===== */
-.submit-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    background: black;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    color: white;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    background: #5f493c;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgb(228, 4, 4);
-    border-color: black;
-}
-
-.home-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    background: black;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    color: #5f493c;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.home-btn:hover {
-    background: #5f493c;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    border-color: black;
-    color: white;
-}
-
+.submit-btn,
+.home-btn,
 .back-to-contact-btn {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 12px 20px;
-    background: black;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #5f493c;
     border-radius: 30px;
-    color: #5f493c;
+    color: white;
     font-size: 1rem;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
+.submit-btn:hover,
+.home-btn:hover,
 .back-to-contact-btn:hover {
     background: #5f493c;
     transform: translateY(-2px);
-    box-shadow: 0 3px 10px black;
-    border-color: black;
-    color: white;
+    box-shadow: 0 5px 15px rgba(95, 73, 60, 0.4);
+    border-color: transparent;
 }
 
-/* ===== Icons ===== */
-.back-to-contact-btn i,
+/* Button icons */
+.submit-btn i,
 .home-btn i,
-.submit-btn i {
+.back-to-contact-btn i {
     font-size: 0.9rem;
     transition: transform 0.3s ease;
 }
 
 .back-to-contact-btn:hover i {
     transform: translateX(-3px);
+}
+
+.submit-btn:hover i {
+    transform: translateX(3px);
 }
 
 /* ===== Animations ===== */
@@ -271,6 +241,7 @@ body::before {
     
     .request-container {
         padding: 25px 20px;
+        margin-top: 60px; 
     }
     
     .request-title {
