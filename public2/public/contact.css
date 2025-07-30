@@ -13,7 +13,20 @@ body {
   min-height: 100vh;
   color: white;
   line-height: 1.6;
-  background-color:  #5f493c;
+  background-color: #121212;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('bg.webp') center/cover no-repeat;
+  z-index: -1;
 }
 
 /* ===== Header & Navigation ===== */
@@ -51,17 +64,6 @@ nav {
 .site-logo:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(255, 141, 2, 0.5);
-}
-
-/* ===== Background Layer ===== */
-.background-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  z-index: -1;
 }
 
 /* ===== Back Button ===== */
@@ -115,6 +117,7 @@ nav {
   border-radius: 8px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.8s ease forwards;
 }
 
 .contact-title {
@@ -122,6 +125,8 @@ nav {
   color: #5f493c;
   text-align: center;
   margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
 }
 
@@ -130,8 +135,10 @@ nav {
   width: 100px;
   background: linear-gradient(90deg, #5f493c, transparent);
   margin: 0 auto 30px;
-  animation: fadeIn 1s ease 0.3s forwards;
   opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fadeIn 1s ease 0.3s forwards, expandWidth 0.6s ease 0.3s forwards;
 }
 
 .tagline {
@@ -139,8 +146,9 @@ nav {
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 50px;
-  animation: fadeIn 0.8s ease 0.5s forwards;
   opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease 0.5s forwards;
 }
 
 .contact-options {
@@ -155,12 +163,22 @@ nav {
   padding: 30px;
   border-radius: 10px;
   border: 1px solid rgba(255, 204, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-method:nth-child(1) {
+  animation: fadeInUp 0.8s ease 0.7s forwards;
+}
+
+.contact-method:nth-child(2) {
+  animation: fadeInUp 0.8s ease 0.9s forwards;
 }
 
 .contact-method:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 .contact-method h2 {
@@ -175,6 +193,11 @@ nav {
 .contact-method h2 i {
   color: #5f493c;
   font-size: 1.3em;
+  transition: transform 0.3s ease;
+}
+
+.contact-method:hover h2 i {
+  transform: rotate(15deg);
 }
 
 .qr-container {
@@ -188,12 +211,14 @@ nav {
   border: 2px solid #5f493c;
   padding: 10px;
   background: white;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
   cursor: pointer;
+  transform-style: preserve-3d;
 }
 
 .qr-code:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) rotateY(10deg);
+  box-shadow: 0 10px 20px rgba(95, 73, 60, 0.4);
 }
 
 .small-text {
@@ -206,10 +231,22 @@ nav {
   color: #5f493c;
   text-decoration: none;
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.direct-link:hover {
-  text-decoration: underline;
+.direct-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #5f493c;
+  transition: width 0.3s ease;
+}
+
+.direct-link:hover::after {
+  width: 100%;
 }
 
 /* Form Styles */
@@ -221,7 +258,13 @@ nav {
 
 .form-group {
   position: relative;
+  opacity: 0;
+  transform: translateY(20px);
 }
+
+.form-group:nth-child(1) { animation: fadeInUp 0.6s ease 0.7s forwards; }
+.form-group:nth-child(2) { animation: fadeInUp 0.6s ease 0.8s forwards; }
+.form-group:nth-child(3) { animation: fadeInUp 0.6s ease 0.9s forwards; }
 
 .form-group label {
   position: absolute;
@@ -271,14 +314,34 @@ nav {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   margin-top: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease 1s forwards;
+  overflow: hidden;
+  position: relative;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
 }
 
 .submit-btn:hover {
   background-color: #e6b800;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
+}
+
+.submit-btn:hover::before {
+  left: 100%;
 }
 
 .submit-btn i {
@@ -286,7 +349,7 @@ nav {
 }
 
 .submit-btn:hover i {
-  transform: translateX(5px);
+  transform: translateX(5px) rotate(15deg);
 }
 
 /* Thank You Modal */
@@ -301,7 +364,7 @@ nav {
   z-index: 2000;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.3s ease forwards;
+  animation: fadeIn 0.4s ease forwards;
 }
 
 .thank-you-content {
@@ -313,22 +376,27 @@ nav {
   width: 90%;
   position: relative;
   color: #5f493c;
-  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
   border: 1px solid #5f493c;
-  animation: slideUp 0.5s ease-out forwards;
-  transform: translateY(20px);
+  transform: scale(0.9);
   opacity: 0;
+  animation: modalFadeIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 .thank-you-content i.fa-check-circle {
   font-size: 4rem;
   color: #5f493c;
   margin-bottom: 20px;
+  transform: scale(0);
+  animation: checkmarkIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards;
 }
 
 .thank-you-content h2 {
   font-size: 2.2rem;
   margin-bottom: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease 0.5s forwards;
 }
 
 .thank-you-content p {
@@ -336,6 +404,9 @@ nav {
   margin-bottom: 30px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease 0.7s forwards;
 }
 
 .close-modal {
@@ -350,7 +421,7 @@ nav {
 
 .close-modal:hover {
   color: #e6b800;
-  transform: rotate(90deg);
+  transform: rotate(90deg) scale(1.1);
 }
 
 .return-home-btn {
@@ -364,13 +435,16 @@ nav {
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease 0.9s forwards;
 }
 
 .return-home-btn:hover {
   background-color: #e6b800;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
 }
 
 /* Animations */
@@ -390,9 +464,29 @@ nav {
   }
 }
 
-@keyframes slideUp {
+@keyframes expandWidth {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes modalFadeIn {
   to {
-    transform: translateY(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes checkmarkIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
     opacity: 1;
   }
 }
