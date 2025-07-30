@@ -79,7 +79,7 @@ header {
     transition: all var(--transition-speed) ease;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
-    background-color: rgba(74, 107, 255, 0.1);
+    background-color:#5f493c;
 }
 
 .back-btn:hover {
@@ -276,7 +276,7 @@ header {
 }
 
 .submit-btn:hover {
-    background-color: #3a5ae8;
+    background-color: #5f493c;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
 }
@@ -340,7 +340,7 @@ header {
 
 .return-home-btn {
     display: inline-flex;
-    align-items: center;
+    align-items: right;
     gap: 0.5rem;
     background-color: var(--accent-color);
     color: var(--white);
@@ -352,7 +352,7 @@ header {
 }
 
 .return-home-btn:hover {
-    background-color: #3a5ae8;
+    background-color: #5f493c;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
 }
