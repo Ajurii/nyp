@@ -3,28 +3,49 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
-              Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: normal;
 }
 
 body {
   position: relative;
   min-height: 100vh;
-  color:black;
+  color: white;
   line-height: 1.6;
   background-color: #121212;
+  padding-top: 120px; /* Space for top bar and menu */
 }
 
-body::before {
-  content: "";
+/* ===== Top Contact Bar ===== */
+.top-bar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: white;
-  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  z-index: 1001;
+  border-bottom: 1px solid rgba(95, 73, 60, 0.3);
+}
+
+.contact-info {
+  display: flex;
+  gap: 20px;
+}
+
+.top-bar a {
+  color: #5f493c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.top-bar a:hover {
+  color: #e6b800;
 }
 
 /* ===== Header & Navigation ===== */
@@ -45,7 +66,7 @@ nav {
 
 .logo-container {
   position: fixed;
-  top: 20px;
+  top: 60px; /* Below top bar */
   right: 20px;
   z-index: 1000;
 }
@@ -67,7 +88,7 @@ nav {
 /* ===== Back Button ===== */
 .back-btn-container {
   position: fixed;
-  top: 30px;
+  top: 60px; /* Below top bar */
   left: 30px;
   z-index: 100;
 }
@@ -101,10 +122,23 @@ nav {
   transform: translateX(-3px);
 }
 
+/* ===== Background Layer ===== */
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('bg.webp') center/cover no-repeat;
+  z-index: -1;
+}
+
 /* ===== Contact Section ===== */
 .contact-section {
   max-width: 1200px;
-  margin: 100px auto;
+  margin: 40px auto 100px;
   padding: 0 20px;
   position: relative;
   z-index: 2;
@@ -115,7 +149,6 @@ nav {
   border-radius: 8px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.8s ease forwards;
 }
 
 .contact-title {
@@ -125,7 +158,12 @@ nav {
   margin-bottom: 15px;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contact-title.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .divider {
@@ -136,7 +174,12 @@ nav {
   opacity: 0;
   transform: scaleX(0);
   transform-origin: left;
-  animation: fadeIn 1s ease 0.3s forwards, expandWidth 0.6s ease 0.3s forwards;
+  transition: opacity 1s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.divider.animate-in {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .tagline {
@@ -146,7 +189,12 @@ nav {
   margin-bottom: 50px;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease 0.5s forwards;
+  transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+}
+
+.tagline.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-options {
@@ -154,6 +202,12 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .contact-options {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-method {
@@ -166,16 +220,13 @@ nav {
   transform: translateY(20px);
 }
 
-.contact-method:nth-child(1) {
-  animation: fadeInUp 0.8s ease 0.7s forwards;
-}
-
-.contact-method:nth-child(2) {
-  animation: fadeInUp 0.8s ease 0.9s forwards;
+.contact-method.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-method:hover {
-  transform: translateY(-5px) scale(1.02);
+  transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -211,11 +262,10 @@ nav {
   background: white;
   transition: all 0.4s ease;
   cursor: pointer;
-  transform-style: preserve-3d;
 }
 
 .qr-code:hover {
-  transform: scale(1.05) rotateY(10deg);
+  transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(95, 73, 60, 0.4);
 }
 
@@ -256,13 +306,7 @@ nav {
 
 .form-group {
   position: relative;
-  opacity: 0;
-  transform: translateY(20px);
 }
-
-.form-group:nth-child(1) { animation: fadeInUp 0.6s ease 0.7s forwards; }
-.form-group:nth-child(2) { animation: fadeInUp 0.6s ease 0.8s forwards; }
-.form-group:nth-child(3) { animation: fadeInUp 0.6s ease 0.9s forwards; }
 
 .form-group label {
   position: absolute;
@@ -314,9 +358,6 @@ nav {
   cursor: pointer;
   transition: all 0.4s ease;
   margin-top: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease 1s forwards;
   overflow: hidden;
   position: relative;
 }
@@ -334,7 +375,7 @@ nav {
 
 .submit-btn:hover {
   background-color: #e6b800;
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
 }
 
@@ -462,11 +503,6 @@ nav {
   }
 }
 
-@keyframes expandWidth {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
 @keyframes modalFadeIn {
   to {
     transform: scale(1);
@@ -490,17 +526,6 @@ nav {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .contact-options {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-method {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-}
-
 @media (max-width: 768px) {
   .contact-section {
     margin: 80px auto;
