@@ -71,7 +71,7 @@ header {
 
 .back-btn {
     display: inline-flex;
-    align-items: center;
+    align-items: right;
     gap: 0.5rem;
     color: var(--accent-color);
     text-decoration: none;
